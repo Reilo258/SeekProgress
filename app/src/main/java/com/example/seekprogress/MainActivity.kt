@@ -20,17 +20,11 @@ class MainActivity : AppCompatActivity() {
         val wb1 = findViewById<SeekBar>(R.id.seekBar)
         val wb2 = findViewById<SeekBar>(R.id.seekBar2)
         val wb3 = findViewById<SeekBar>(R.id.seekBar3)
-        wb1.progress = 100;
-        wb2.progress = 100;
-        wb3.progress = 100;
 
         //heightbars
         val hb1 = findViewById<SeekBar>(R.id.seekBar4)
         val hb2 = findViewById<SeekBar>(R.id.seekBar5)
         val hb3 = findViewById<SeekBar>(R.id.seekBar6)
-        hb1.progress = 100;
-        hb2.progress = 100;
-        hb3.progress = 100;
 
 
         //IMAGE 1
