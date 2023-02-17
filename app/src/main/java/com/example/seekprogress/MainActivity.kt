@@ -3,6 +3,7 @@ package com.example.seekprogress
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.SeekBar
 import android.widget.TextView
 
@@ -10,6 +11,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //progressBars
+        val widthBar = findViewById<ProgressBar>(R.id.progressBar)
+        val heightBar = findViewById<ProgressBar>(R.id.progressBar2)
 
         //images
         val img1 = findViewById<ImageView>(R.id.imageView)
@@ -27,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         val hb3 = findViewById<SeekBar>(R.id.seekBar6)
 
 
+        fun heightBars() {
+            heightBar.progress = (hb1.progress + hb2.progress + hb3.progress) / 3
+        }
+
+
         //IMAGE 1
         wb1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -39,6 +49,7 @@ class MainActivity : AppCompatActivity() {
         hb1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img1.scaleY = progress.toFloat() / 100f
+                heightBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -57,6 +68,7 @@ class MainActivity : AppCompatActivity() {
         hb2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img2.scaleY = progress.toFloat() / 100f
+                heightBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -75,6 +87,7 @@ class MainActivity : AppCompatActivity() {
         hb3.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img3.scaleY = progress.toFloat() / 100f
+                heightBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
