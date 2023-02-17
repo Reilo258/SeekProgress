@@ -2,15 +2,14 @@ package com.example.seekprogress
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.ProgressBar
-import android.widget.SeekBar
-import android.widget.TextView
+import android.widget.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val resetbtn = findViewById<Button>(R.id.resetbtn)
 
         //progressBars
         val widthBar = findViewById<ProgressBar>(R.id.progressBar)
@@ -31,6 +30,18 @@ class MainActivity : AppCompatActivity() {
         val hb2 = findViewById<SeekBar>(R.id.seekBar5)
         val hb3 = findViewById<SeekBar>(R.id.seekBar6)
 
+
+        resetbtn.setOnClickListener {
+            wb1.progress = 100
+            wb2.progress = 100
+            wb3.progress = 100
+            widthBar.progress = 100
+
+            hb1.progress = 100
+            hb2.progress = 100
+            hb3.progress = 100
+            heightBar.progress = 100
+        }
 
         fun heightBars() {
             heightBar.progress = (hb1.progress + hb2.progress + hb3.progress) / 3
