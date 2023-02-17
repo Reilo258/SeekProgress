@@ -36,11 +36,16 @@ class MainActivity : AppCompatActivity() {
             heightBar.progress = (hb1.progress + hb2.progress + hb3.progress) / 3
         }
 
+        fun widthBars() {
+            widthBar.progress = (wb1.progress + wb2.progress + wb3.progress) / 3
+        }
+
 
         //IMAGE 1
         wb1.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img1.scaleX = progress.toFloat() / 100f
+                widthBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -60,6 +65,7 @@ class MainActivity : AppCompatActivity() {
         wb2.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img2.scaleX = progress.toFloat() / 100f
+                widthBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -79,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         wb3.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 img3.scaleX = progress.toFloat() / 100f
+                widthBars()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
